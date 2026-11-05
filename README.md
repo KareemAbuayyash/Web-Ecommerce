@@ -1,50 +1,48 @@
-# متجر كريم الإلكتروني
+# Kareem Online Store
 
-موقع تسوّق إلكتروني بسيط مبني باستخدام PHP وMySQL. يوفّر تصفح المنتجات حسب الفئة، سلة مشتريات، وتسجيل دخول مع صفحات لإدارة المنتجات.
+A simple online shopping website built with PHP and MySQL. It supports product browsing by category, a shopping cart, user accounts, and product management pages.
 
-## المتطلبات
+## Requirements
 
-- Windows مع [XAMPP](https://www.apachefriends.org/)
-- PHP 8.2 أو أحدث، مع إضافة `mysqli`
-- MySQL أو MariaDB
-- متصفح ويب
+- Windows with [XAMPP](https://www.apachefriends.org/)
+- PHP 8.2 or newer with the `mysqli` extension
+- MySQL or MariaDB
+- A web browser
 
-## تشغيل المشروع على XAMPP
+## Run locally with XAMPP
 
-1. شغّل خدمة **MySQL** من لوحة تحكم XAMPP. لا يلزم نقل المشروع إلى `htdocs` عند استخدام خادم PHP المدمج.
-2. افتح phpMyAdmin، وأنشئ قاعدة بيانات باسم `ka` إذا لم تكن موجودة.
-3. اختر قاعدة `ka` ثم **Import**، واستورد الملف `ka.sql`.
-4. راجع بيانات الاتصال في `config.php`. الإعداد الحالي يستخدم `127.0.0.1:3307`، والمستخدم `root`، وكلمة مرور فارغة. عدّلها لتطابق إعداد MySQL لديك.
-5. افتح PowerShell في مجلد المشروع وشغّل:
+1. Start **MySQL** from the XAMPP Control Panel. You do not need to move this project into `htdocs` when using PHP's built-in development server.
+2. Open phpMyAdmin and create a database named `ka` if it does not already exist.
+3. Select the `ka` database, choose **Import**, and import `ka.sql`.
+4. Check the database connection settings in `config.php`. The current settings use `127.0.0.1:3307`, user `root`, and a blank password. Update them to match your local MySQL configuration.
+5. Open PowerShell in the project folder and run:
 
    ```powershell
    C:\xampp\php\php.exe -S localhost:8000
    ```
 
-6. افتح <http://localhost:8000> في المتصفح. أوقف الخادم بالضغط على `Ctrl+C` في PowerShell.
+6. Open <http://localhost:8000> in your browser. Stop the server by pressing `Ctrl+C` in PowerShell.
 
-## الحسابات والأدوار
+## Accounts and roles
 
-- أنشئ حسابًا من صفحة **Register**؛ التسجيل العام ينشئ حسابًا بدور `user`.
-- لمنح حساب صلاحية الإدارة محليًا، افتح `ka` ثم جدول `users` في phpMyAdmin، وعدّل قيمة `role` للحساب المطلوب إلى `admin`.
-- لا تجعل تسجيل الأدمن متاحًا للعامة عند نشر الموقع.
+- Create an account from the **Register** page. Public registration creates a `user` account.
+- To grant administrator access in a local setup, open the `ka` database and `users` table in phpMyAdmin, then change the account's `role` value to `admin`.
+- Do not expose administrator registration publicly when deploying the website.
 
-## هيكل الملفات
+## Project files
 
-- `home.php`, `phone.php`, `headphone.php`, `accessories.php`: واجهات المتجر والفئات.
-- `cart.php` و`insert_cart.php` و`update_quantity.php` و`del_cart.php`: عمليات سلة التسوق.
-- `products.php`, `insert.php`, `update.php`, `delete.php`: إدارة المنتجات.
-- `login.php`, `register.php`, `logout.php`: الحسابات والجلسات.
-- `config.php`: اتصال قاعدة البيانات.
-- `ka.sql`: بنية قاعدة البيانات والبيانات الأولية.
-- `css/`, ملفات CSS في الجذر، `img/`, و`iamges/`: تنسيقات وصور الموقع.
+- `home.php`, `phone.php`, `headphone.php`, `accessories.php`: storefront and product category pages.
+- `cart.php`, `insert_cart.php`, `update_quantity.php`, `del_cart.php`: shopping cart operations.
+- `products.php`, `insert.php`, `update.php`, `delete.php`: product management.
+- `login.php`, `register.php`, `logout.php`: accounts and sessions.
+- `config.php`: database connection settings.
+- `ka.sql`: database schema and initial data.
+- `css/`, CSS files in the project root, `img/`, and `iamges/`: styles and images.
 
-## ملاحظات أمنية
+## Security notes
 
-هذا المشروع معدّ للتعلّم والتشغيل المحلي. قبل نشره على الإنترنت، راجع حماية صفحات الإدارة، التحقق من المدخلات، حماية رفع الملفات، وإعدادات كلمات المرور والجلسات. لا ترفع بيانات اتصال حقيقية أو كلمات مرور إلى مستودع عام.
+This project is intended for learning and local use. Before deploying it online, review administrator page protection, input validation, file upload security, and password and session handling. Do not publish real database credentials or passwords in a public repository.
 
-## الحقوق والترخيص
+## Credits and rights
 
-© 2026 Kareem Abuayyash. جميع الحقوق محفوظة لمؤلف المشروع. يُنسب تطوير الموقع إلى Kareem Abuayyash كما يظهر داخل صفحات المشروع. لا يُمنح بهذا الملف ترخيص لإعادة النشر أو الاستخدام التجاري؛ يلزم أخذ إذن صاحب الحقوق قبل ذلك. الأطر والمكتبات والصور والخطوط الخارجية تحتفظ بتراخيص وحقوق أصحابها الأصليين.
-
-للتواصل: [Instagram](https://www.instagram.com/kareem_abuayyash/)
+© 2025 Kareem Abuayyash. All rights reserved. The project credits Kareem Abuayyash as its developer, as shown on the website. This README does not grant a license to redistribute or use the project commercially; contact the rights holder for permission. Third-party frameworks, libraries, images, and fonts remain subject to their respective owners' licenses and rights.
